@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hampton University Marketing Concentration</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #002868;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --cream: #FDF8EF;
+    --dark: #0A0F1E;
+    --white: #ffffff;
+    --coral: #E8593A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .infographic {
+    width: 800px;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 48px 48px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.12;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: var(--gold-light);
+    opacity: 0.08;
+  }
+
+  .header-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header h1 span {
+    color: var(--gold);
+  }
+
+  .header-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .gold-bar {
+    height: 6px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  }
+
+  /* ── BODY ── */
+  .body {
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  /* ── SECTION CARD ── */
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px;
+    position: relative;
+    box-shadow: 0 2px 16px rgba(0,40,104,0.07);
+    border: 1px solid rgba(0,40,104,0.06);
+  }
+
+  .card-full {
+    grid-column: 1 / -1;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 14px;
+  }
+
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  /* ── STUDY ITEMS ── */
+  .study-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .study-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .study-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .study-dot span {
+    color: var(--gold);
+    font-size: 14px;
+  }
+
+  .study-item p {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  /* ── CAREER PILLS ── */
+  .career-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .career-pill {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a7a 100%);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .career-pill::after {
+    content: '→';
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    color: var(--gold);
+    font-size: 14px;
+  }
+
+  /* ── SALARY ── */
+  .salary-card {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 32px 28px;
+  }
+
+  .salary-card .section-label {
+    color: rgba(0,40,104,0.6);
+  }
+
+  .salary-card h2 {
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .salary-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+    margin: 8px 0;
+  }
+
+  .salary-note {
+    font-size: 12px;
+    color: rgba(0,40,104,0.7);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  /* ── WHY HAMPTON ── */
+  .why-card {
+    background: var(--navy);
+    border: none;
+    grid-column: 1 / -1;
+  }
+
+  .why-card .section-label {
+    color: var(--gold-light);
+  }
+
+  .why-card h2 {
+    color: var(--white);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .why-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .why-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .why-item p {
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--dark);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer p {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .footer .cta {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .hampton-seal {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--navy);
+  }
+</style>
+</head>
+<body>
+<div class="infographic">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-tag">James T. George School of Business</div>
+    <h1>Hampton University<br><span>Marketing</span> Concentration</h1>
+    <p class="header-sub">Build the skills to shape brands, influence culture, and lead markets.</p>
+  </div>
+  <div class="gold-bar"></div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- What You'll Study -->
+    <div class="card">
+      <div class="section-label">Curriculum</div>
+      <h2>What You'll Study</h2>
+      <div class="study-list">
+        <div class="study-item">
+          <div class="study-dot"><span>📲</span></div>
+          <p>Digital Marketing</p>
+        </div>
+        <div class="study-item">
+          <div class="study-dot"><span>📣</span></div>
+          <p>Social Media Marketing</p>
+        </div>
+        <div class="study-item">
+          <div class="study-dot"><span>👗</span></div>
+          <p>Fashion Marketing</p>
+        </div>
+        <div class="study-item">
+          <div class="study-dot"><span>🏪</span></div>
+          <p>Retail Management</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Starting Salary -->
+    <div class="card salary-card">
+      <div class="section-label">Starting Salary Range</div>
+      <div class="salary-amount">$50K–$80K</div>
+      <p class="salary-note">Average starting salaries for marketing graduates</p>
+    </div>
+
+    <!-- Career Paths -->
+    <div class="card card-full">
+      <div class="section-label">Where You'll Go</div>
+      <h2>Career Paths</h2>
+      <div class="career-grid">
+        <div class="career-pill">Marketing<br>Coordinator</div>
+        <div class="career-pill">Product Marketing<br>Manager</div>
+        <div class="career-pill">Retail<br>Analyst</div>
+        <div class="career-pill">Social Media<br>Manager</div>
+      </div>
+    </div>
+
+    <!-- Why Hampton -->
+    <div class="card why-card">
+      <div class="section-label">✦ Why Hampton</div>
+      <h2>The Hampton Advantage</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon">🎓</div>
+          <p>Small Class Sizes for personalized learning</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">💼</div>
+          <p>Faculty with Real Industry Experience</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🤝</div>
+          <p>Strong Industry Partnerships & Networks</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="hampton-seal">HU</div>
+    <p>Hampton University · Hampton, Virginia</p>
+    <p class="cta">hamptonu.edu</p>
+  </div>
+
+</div>
+</body>
+</html>
